@@ -6,3 +6,14 @@ data:
   BG_COLOR: '#12181b'
   FONT_COLOR: '#FFFFFF'
   CUSTOM_HEADER: {{ .Values.configmap.data.CUSTOM_HEADER }}
+
+  index.html: |
+    <h1>Welcome to My Awesome App! </h1>
+  nginx.conf: |
+    server {
+      listen 80;
+      location / {
+        root /var/www/html;
+        index index.html index.htm;
+      }
+    }
