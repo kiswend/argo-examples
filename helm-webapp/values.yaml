@@ -2,22 +2,12 @@ appName: myhelmapp
 
 port: 80
 
+configmap:
+  name: myhelmapp-configmap-v1
+  data:
+    CUSTOM_HEADER: 'This app was deployed with helm!'
+
 image:
   name: nginx
   tag: latest
-
-
-configMap:
-  name: myhelmapp-configmap-v2
-  data:
-    index.html: |
-      <h1>Welcome to My Awesome App!</h1>
-    nginx.conf: |
-      server {
-        listen 80;
-        location / {
-          root /var/www/html;
-          index index.html index.htm;
-        }
-      }
-    CUSTOM_HEADER: 'This app was deployed with helm!'
+  
