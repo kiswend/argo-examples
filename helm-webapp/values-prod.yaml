@@ -1,6 +1,16 @@
 
 replicas: 2
 
-configmap:
+configMap:
   data:
+    index.html: |
+      <h1>Welcome to My Awesome App in production!</h1>
+    nginx.conf: |
+      server {
+        listen 80;
+        location / {
+          root /var/www/html;
+          index index.html index.htm;
+        }
+      }
     CUSTOM_HEADER: 'This is on the PROD environment!'
